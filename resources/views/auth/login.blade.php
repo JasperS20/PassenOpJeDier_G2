@@ -13,7 +13,7 @@
         <form class="auth-form" action="{{ route('login') }}" method="POST">
             @csrf
             <div style="margin-right:20px;" class="input-field">
-                <label style="margin-right:160px;" for="email">e-mailadres</label><br>
+                <label style="margin-right:160px;" for="email">e-mailahsdhshshss</label><br>
                 <input type="text" name="email" id="email" value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>

@@ -12,9 +12,11 @@ class DienstenController extends Controller
 {
     public function index(Advertisements $advertisements) {
         $userID = auth::user()->id; //ID van de geathenticeerde gebruiker| bv 2
-        // $advertisements = Advertisements::find($userID)::all()->where('user_id', '!=', $userID); //Alle ads 
+        $available_ads = $advertisements->get()->where('user_id', '!=', $userID);
+        // dd($available_ads->where('id', '=', 1));
+        // dd($advertisements->get()->where('user_id', '!=', $userID));
         return view('diensten.opdrachten', [
-            "advertisements" => $advertisements->get()->where('user_id', '!=', $userID)
+            "advertisements" => $available_ads
         ]);
     }
 

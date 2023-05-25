@@ -338,3 +338,22 @@ nav a {
 .review-btn:hover {
     background-color: #39b957;
 }
+
+.filterForm {
+    display: flex;
+    margin: 30px;
+}
+  
+.form-group {
+    margin-right: 10px;
+}
+  
+.filterButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+}

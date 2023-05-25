@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/diensten', [DienstenController::class, 'index'])->name('diensten');
     Route::get('/diensten/opdrachten', [DienstenController::class, 'myRequests']);
     Route::post('/diensten/{advertisements}', [DienstenController::class, 'request']);
+    //filter diensten
+    Route::get('/advertenties/filter', [DienstenController::class, 'filter']);
     //bekijk een advertentie van een andere gebruiker
     Route::get('/advertenties/{advertisements}/bekijken', [DienstenController::class, 'details']);
 

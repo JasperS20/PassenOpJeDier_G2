@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Validator;
 class AdvertisementController extends Controller
 {
     public function show() {
-        // $userID = auth::user()->id; //ID van de geathenticeerde gebruiker| bv 2
-        // $advertisements = Advertisements::find($userID)::all()->where('user_id', '=', $userID); //Alle ads
-        // dd($userID);
-        // dd($advertisements);
-        // dd(count($advertisements));
         return view('advertenties.mijn-advertenties', [
             "advertisements" => auth()->user()->advertisements()->get(),
         ]);

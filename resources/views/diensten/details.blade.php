@@ -28,6 +28,7 @@
             <h3 style="margin-left: 10px">{{$advertisements->description}}</h3>
             <br>
             <h3>Foto van het dier:</h3>
+            <img src="{{ asset($advertisements->img) }}" alt="">
             {{$advertisements->img}}
         </div>
     </article>

@@ -24,7 +24,15 @@
             </div>
             <div class="input-field">
                 <label for="animal">Soort dier*</label><br>
-                <input type="text" name="animal" value="{{$advertisements->animal}}">
+                <select name="animal" id="animal" class="button">
+                    <option>{{$advertisements->animal}}</option>
+                    <option value="hond">Hond</option>
+                    <option value="kat">Kat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="cavia">Cavia</option>
+                    <option value="vis">Vis</option>
+                    <option value="vogel">Vogel</option>
+                </select>
                 @error('animal')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

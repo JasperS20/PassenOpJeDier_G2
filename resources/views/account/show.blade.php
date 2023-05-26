@@ -26,7 +26,7 @@
             <h3 style="margin-left: 10px">{{$user->streetname}} {{$user->housenumber}}</h3>
             <br>
             <h3>Foto's van het huis:</h3>
-            {{$user->img}}
+            <img class="animal-img" src="{{ Storage::url($user->img) }}" alt="">
             <br>
             <a href="/reviews/{{$user->id}}/bekijken" style=" color: #000000; text-decoration: underline;">Bekijk de reviews van {{$user->name}}</a>
         </div>

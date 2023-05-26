@@ -28,7 +28,7 @@
             <h3 style="margin-left: 10px">{{$advertisements->description}}</h3>
             <br>
             <h3>Foto van het dier:</h3>
-            <img src="{{ Storage::url($advertisements->img) }}" alt="">
+            <img class="animal-img" src="{{ Storage::url($advertisements->img) }}" alt="">
         </div>
     </article>
 @endsection('content')

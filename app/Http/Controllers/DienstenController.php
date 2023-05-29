@@ -21,14 +21,16 @@ class DienstenController extends Controller
     }
 
     public function filter(Request $request, Advertisements $advertisements) {
-        $userID = auth::user()->id; //ID van de geathenticeerde gebruiker| bv 2
+        $userID = auth()->user()->id; // ID of the authenticated user, e.g., 2
         $available_ads = $advertisements->get()->where('user_id', '!=', $userID);
-
+    
         $animal = $request->input('animal');
         $price = $request->input('price_range');
-
-        $advertisements = Advertisements::where('price', $price)->get();
-
+    
+        $advertisements = Advertisements::where('animal', $animal)
+            ->where('price', $price)
+            ->get();
+    
         return view('diensten.opdrachten', [
             "advertisements" => $advertisements
         ]);

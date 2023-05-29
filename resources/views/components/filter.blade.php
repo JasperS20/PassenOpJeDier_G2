@@ -1,3 +1,5 @@
+@props(['advertisements'])
+
 <form action="/advertenties/filter" class="filterForm">
     <section class="first-form-group">
       <div class="form-group">
@@ -12,7 +14,7 @@
         </select>
       </div>
       <div class="form-group">
-        <input type="number" name="price_range" id="price_range" placeholder="Prijs per uur...">
+        <input type="number" name="price_range" id="price_range" placeholder="Prijs per uur..." value="">
       </div>
     </section>
     <div class="form-group" style="float: right">

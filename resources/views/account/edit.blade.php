@@ -8,11 +8,16 @@
         @csrf
         @method('PUT')
         <div class="image-field" style="float:right;">
-            <h3 style="color: black;">Upload hier een foto van jouw woonkamer</h3>
-            <input class="input-img" type="file" name="img" accept="image/*">
-            @error('img')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+            @if(Auth::user()->img)
+                <h3 style="color: black;">Jouw profile foto:</h3>
+                <img src="{{ Storage::url($user->img) }}" alt="">
+            @else
+                <h3 style="color: black;">Upload hier een foto van jouw woonkamer</h3>
+                <input class="input-img" type="file" name="img" accept="image/*">
+                @error('img')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            @endif
         </div>
         <div class="input-field">
             <label for="name">Gebruikersnaam</label><br>

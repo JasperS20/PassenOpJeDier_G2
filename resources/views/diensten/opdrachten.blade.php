@@ -1,3 +1,5 @@
+@props(['advertisements'])
+
 @extends('layouts.main')
 
 @section('content')

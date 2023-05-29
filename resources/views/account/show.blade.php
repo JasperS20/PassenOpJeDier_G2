@@ -37,7 +37,7 @@
             @csrf
             <div class="input-field" style="margin: 50px">
                 <label for="name">Gebruikersnaam:</label><br>
-                <input type="name" name="name" value="{{$user->name}}" readonly>
+                <input type="name" name="name" value="{{ Auth::user()->name }}" readonly>
             </div>
             <div class="input-field" style="margin: 50px">
                 <label for="description">Review:</label><br>

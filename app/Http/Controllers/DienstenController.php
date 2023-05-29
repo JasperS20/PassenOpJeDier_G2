@@ -22,13 +22,13 @@ class DienstenController extends Controller
 
     public function filter(Request $request, Advertisements $advertisements) {
         $userID = auth()->user()->id; // ID of the authenticated user, e.g., 2
-        $available_ads = $advertisements->get()->where('user_id', '!=', $userID);
+        $advertisements = $advertisements->get()->where('user_id', '!=', $userID);
     
         $animal = $request->input('animal');
         $price = $request->input('price_range');
     
         $advertisements = Advertisements::where('animal', $animal)
-            ->where('price', $price)
+            ->orWhere('price', $price)
             ->get();
     
         return view('diensten.opdrachten', [

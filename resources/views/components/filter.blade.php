@@ -1,5 +1,3 @@
-@props(['advertisements'])
-
 <form action="/advertenties/filter" class="filterForm">
     <section class="first-form-group">
       <div class="form-group">

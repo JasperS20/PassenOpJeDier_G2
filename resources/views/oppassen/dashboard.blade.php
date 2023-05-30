@@ -3,6 +3,29 @@
 @section('content')
     <h1 style="margin-left: 50px; font-size: 30px; color: #58A746">Welkom {{$user->name}}</h1>
 
+    @if($user->is_admin)
+        <h1 style="color:#58A746">Hallo admin</h1>
+        <section class="content-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($all_users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <!-- Add other columns' data as per your user information -->
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </section>
+    @endif
+
     <section class="content">
         <section class="content-box">
             <h1>Advertenties</h1>

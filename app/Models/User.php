@@ -28,7 +28,8 @@ class User extends Authenticatable
         'age',
         'surname',
         'lastname',
-        'img'
+        'img',
+        'is_admin',
     ];
 
     /**
@@ -39,6 +40,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'is_admin',
     ];
 
     /**
@@ -53,5 +55,9 @@ class User extends Authenticatable
     //Relationship with advertisements
     public function advertisements() {
         return $this->hasMany(Advertisements::class, 'user_id');
+    }
+
+    public function hasRole() {
+        
     }
 }

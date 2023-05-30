@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -21,6 +22,14 @@ Route::get('/registratie', function() {
 Route::get('/login', function() {
     return view('auth.login');
 })->name('login');
+
+//admin routes
+Route::middleware('admin')->group(function() {
+    //index pagina admin
+    Route::get('admin/bekijken', [HomeDashboard::class, 'viewUser'])->name('admin.index');
+    //verwijderen gebruiker admin
+    Route::put('/users/{id}', [AdminUserController::class, 'deleteUsers'])->name('users.delete');
+});
 
 Route::middleware('auth')->group(function() {
     Route::get('/', [HomeDashboard::class, 'viewUser'])->name('dashboard.index');

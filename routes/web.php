@@ -28,7 +28,13 @@ Route::middleware('admin')->group(function() {
     //index pagina admin
     Route::get('admin/bekijken', [HomeDashboard::class, 'viewUser'])->name('admin.index');
     //verwijderen gebruiker admin
-    Route::put('/users/{id}', [AdminUserController::class, 'deleteUsers'])->name('users.delete');
+    Route::put('/users/{id}/verwijderen', [AdminUserController::class, 'deleteUsers'])->name('users.delete');
+    //verwijderen advertentie
+    Route::put('advertenties/{id}/verwijderen', [AdminUserController::class, 'deleteAdvertisements'])->name('advertisements.delete');
+
+    //bekijken tabellen users en advertenties
+    Route::get('users/bekijken', [AdminUserController::class, 'usersTable'])->name('admin.users');
+    Route::get('advertisements/bekijken', [AdminUserController::class, 'advertisementsTable'])->name('admin.advertisements');
 });
 
 Route::middleware('auth')->group(function() {

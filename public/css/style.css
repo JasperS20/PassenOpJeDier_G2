@@ -389,3 +389,11 @@ nav a {
     padding: 8px;
     border: 1px solid #ddd;
 }
+
+.admin-tabel-btn {
+    background-color: var(--secundair-color);
+    color: var(--tertiare-color);
+    border: none;
+    padding: 8px;
+    margin: 5px;
+}

@@ -3,7 +3,7 @@
 @section('content')
     <h1 style="margin-left: 50px; font-size: 30px; color: #58A746">Welkom {{$user->name}}</h1>
 
-    @if($user->is_admin)
+    {{-- @if($user->is_admin)
         <h1 style="color:#58A746">Hallo admin</h1>
         <section class="content-box">
             <table>
@@ -24,7 +24,7 @@
                 </tbody>
             </table>
         </section>
-    @endif
+    @endif --}}
 
     <section class="content">
         <section class="content-box">

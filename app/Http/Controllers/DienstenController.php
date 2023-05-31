@@ -26,10 +26,34 @@ class DienstenController extends Controller
     
         $animal = $request->input('animal');
         $price = $request->input('price_range');
+        $search = $request->input('search');
+        $query = Advertisements::where('user_id', '!=', $userID);
     
         $advertisements = Advertisements::where('animal', $animal)
+            ->orWhere('animal', $animal)
             ->orWhere('price', $price)
             ->get();
+
+            if ($search) {
+                $advertisements = $query->get();
+        
+                $searchResults = [];
+                foreach ($advertisements as $advertisement) {
+                    $userName = strtolower($advertisement->user_name);
+                    $name = strtolower($advertisement->name);
+                    $animal = strtolower($advertisement->animal);
+        
+                    if (strpos($userName, strtolower($search)) !== false ||
+                        strpos($name, strtolower($search)) !== false ||
+                        strpos($animal, strtolower($search)) !== false) {
+                        $searchResults[] = $advertisement;
+                    }
+                }
+        
+                $advertisements = collect($searchResults);
+            } else {
+                $advertisements = $query->get();
+            }
     
         return view('diensten.opdrachten', [
             "advertisements" => $advertisements

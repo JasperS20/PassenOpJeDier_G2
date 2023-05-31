@@ -1,6 +1,9 @@
 <form action="/advertenties/filter" class="filterForm">
     <section class="first-form-group">
       <div class="form-group">
+        <input type="text" name="search" id="search" placeholder="Zoeken...">
+      </div>
+      <div class="form-group">
         <select name="animal" id="animal" class="button">
           <option value="other">Kies een dier</option>
           <option value="hond">Hond</option>

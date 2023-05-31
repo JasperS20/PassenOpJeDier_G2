@@ -397,3 +397,41 @@ nav a {
     padding: 8px;
     margin: 5px;
 }
+
+@media (max-width: 768px) {
+    .menu li {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    /* Show the menu when checkbox is checked */
+    #menu-toggle:checked ~ .menu li {
+        display: block;
+    }
+    
+    .card {
+        flex-direction: column;
+    }
+    
+    .add-items {
+        text-align: center;
+    }
+    
+    .add-items li {
+        margin: 10px 0;
+    }
+    
+    .action-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .action-buttons div {
+        margin: 10px;
+    }
+}

@@ -3,6 +3,7 @@
 <x-card>
     <section class="card">
         <div class="add-items">
+            <li><p>Gebruikersnaam: {{$advertisements->user_name}}</p></li>
             <li><p>Naam dier: {{$advertisements->name}}</p></li>
             <li><p>Soort dier: {{$advertisements->animal}}</p></li>
             <li><p>€{{$advertisements->price}} / dag</p></li>

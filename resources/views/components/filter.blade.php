@@ -15,7 +15,7 @@
         </select>
       </div>
       <div class="form-group">
-        <input type="number" name="price_range" id="price_range" placeholder="Prijs per uur..." value="">
+        <input type="number" name="price_range" id="price_range" placeholder="Max prijs per uur..." value="">
       </div>
     </section>
     <div class="form-group" style="float: right">

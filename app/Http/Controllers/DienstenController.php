@@ -21,42 +21,32 @@ class DienstenController extends Controller
     }
 
     public function filter(Request $request, Advertisements $advertisements) {
-        $userID = auth()->user()->id; // ID of the authenticated user, e.g., 2
-        $advertisements = $advertisements->get()->where('user_id', '!=', $userID);
-    
+        $userID = auth()->user()->id;
         $animal = $request->input('animal');
         $price = $request->input('price_range');
         $search = $request->input('search');
         $query = Advertisements::where('user_id', '!=', $userID);
     
-        $advertisements = Advertisements::where('animal', $animal)
-            ->orWhere('animal', $animal)
-            ->orWhere('price', $price)
-            ->get();
-
-            if ($search) {
-                $advertisements = $query->get();
-        
-                $searchResults = [];
-                foreach ($advertisements as $advertisement) {
-                    $userName = strtolower($advertisement->user_name);
-                    $name = strtolower($advertisement->name);
-                    $animal = strtolower($advertisement->animal);
-        
-                    if (strpos($userName, strtolower($search)) !== false ||
-                        strpos($name, strtolower($search)) !== false ||
-                        strpos($animal, strtolower($search)) !== false) {
-                        $searchResults[] = $advertisement;
-                    }
-                }
-        
-                $advertisements = collect($searchResults);
-            } else {
-                $advertisements = $query->get();
-            }
+        if ($animal && $animal != 'other') {
+            $query->where('animal', $animal);
+        }
+    
+        if ($price) {
+            $query->where('price', '<=', $price);
+        }
+    
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('user_name', 'LIKE', '%' . strtolower($search) . '%')
+                  ->orWhere('name', 'LIKE', '%' . strtolower($search) . '%')
+                  ->orWhere('animal', 'LIKE', '%' . strtolower($search) . '%');
+            });
+        }
+    
+        $advertisements = $query->get();
     
         return view('diensten.opdrachten', [
-            "advertisements" => $advertisements
+            'advertisements' => $advertisements
         ]);
     }
 

@@ -7,7 +7,7 @@
         <div class="image-field" style="float:right;">
             @if(Auth::user()->img)
                 <h3 style="color: black;">Jouw profile foto:</h3>
-                <img src="{{ Storage::url($user->img) }}" alt="">
+                <img class="profile-img" src="{{ Storage::url($user->img) }}" alt="">
             @else
                 <h3 style="color: black;">Upload hier een foto van jouw woonkamer</h3>
                 {{-- <input class="input-img" type="file" name="img" accept="image/*"> --}}

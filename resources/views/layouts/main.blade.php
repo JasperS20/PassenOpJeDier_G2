@@ -10,30 +10,35 @@
 </head>
 <body>
     <section class="dashboard">
-        <nav>
-            <ul>
-                <a class="logo" href="{{ route('dashboard.index') }}"><img src="/img/logo.png" style="height: 50px;"></a>
+        <header>
+            <div class="logo">
+              <a href="{{ route('dashboard.index') }}"><img src="/img/logo.png" style="height: 50px;"></a>
+            </div>
+          
+            <nav>
+              <ul class="nav-items">
                 {{-- @if($user->is_admin == false) --}}
-                    @if(Auth::check())
-                        <li class="logo">
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <button class="logout-btn" type="submit">
-                                    <i class="fa-solid fa-door-closed"></i> Logout
-                                </button>
-                            </form>
-                        </li>
-                        <li class="logo"><a href="{{ route('account-view') }}">Mijn Account</a></li>
-                        <li class="logo"><a href="{{ route('diensten') }}">Mijn Diensten</a></li>
-                        <li class="logo"><a href="{{ route('advertenties') }}">Mijn Advertenties</a></li>
-                    @endif
-                    @if(!Auth::check())
-                        <li class="logo"><a href="{{ route('login') }}">Inloggen</a></li>
-                        <li class="logo"><a href="{{ route('registratie') }}">Registreren</a></li>
-                    @endif
+                  @if(Auth::check())
+                    <li>
+                        <form method="POST" action="/logout">
+                        @csrf
+                        <button class="logout-btn" type="submit">
+                            <i class="fa-solid fa-door-closed"></i> Logout
+                        </button>
+                        </form>
+                    </li>
+                    <li><a href="{{ route('diensten') }}">Mijn Diensten</a></li>
+                    <li><a href="{{ route('advertenties') }}">Mijn Advertenties</a></li>
+                    <li><a href="{{ route('account-view') }}">Mijn Account</a></li>
+                  @endif
+                  @if(!Auth::check())
+                    <li><a href="{{ route('login') }}">Inloggen</a></li>
+                    <li><a href="{{ route('registratie') }}">Registreren</a></li>
+                  @endif
                 {{-- @endif --}}
-            </ul>
-        </nav>
+              </ul>
+            </nav>
+          </header>
 
         <!-- additional navbar -->
         @yield('additional-navbar')

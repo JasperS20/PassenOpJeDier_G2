@@ -138,18 +138,42 @@ nav ul {
     color: var(--tertiare-color);
 }
 
-.logo {
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    margin: 20px;
-}
-
 .logo:hover {
     text-decoration: underline;
     color: var(--secundair-color);
     transform: translateY(-3px);
     transition: 0.2s all ease-in-out;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+  
+.logo {
+    display: flex;
+    align-items: center;
+}
+  
+.logo img {
+    height: 100%;
+}
+  
+nav {
+    text-align: center;
+}
+  
+.nav-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-items li {
+    display: inline-block;
+    margin: 10px;
 }
 
 .hond-img {
@@ -199,6 +223,7 @@ nav a {
 /* home-dashboard */
 .content {
     display: flex;
+    justify-content: space-between;
     margin: 20px;
 }
 
@@ -430,39 +455,64 @@ nav a {
 }
 
 @media only screen and (max-width: 868px) {
-    nav ul {
+    header {
         flex-direction: column;
+        align-items: center;
     }
     
-    nav li {
+    .nav-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-items li {
         display: block;
         margin: 5px;
     }
 
-    .add-items {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav li {
+      display: block;
+      margin: 5px;
+    }
+
+    .content {
         flex-wrap: wrap;
     }
 
+    .content-box {
+        width: 100%;
+    }
+  
     .card {
-        position: relative;
-        margin-bottom: 50px; /* Adjust the margin as needed */
-        height: fit-content;
+      position: relative;
+      margin: 10px;
     }
-    
+  
+    .add-items {
+      padding-bottom: 80px;
+    }
+  
     .action-buttons {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 30px;
     }
-
+  
     .filterForm .first-form-group {
-        flex-direction: column;
+      flex-direction: column;
     }
-      
+  
     .filterForm .form-group {
-        width: 100%;
+      width: 100%;
     }
-}
+  }

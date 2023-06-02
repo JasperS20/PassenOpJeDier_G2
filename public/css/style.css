@@ -459,12 +459,22 @@ nav a {
     border: 1px solid #ddd;
 }
 
+.admin-links {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
 .admin-tabel-btn {
     background-color: var(--secundair-color);
     color: var(--tertiare-color);
     border: none;
     padding: 8px;
     margin: 5px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
 }
 
 @media only screen and (max-width: 868px) {
@@ -565,5 +575,14 @@ nav a {
     .adv-textarea {
         width: 80%;
         box-sizing: border-box;
+    }
+
+    .user-table {
+        width: 100%;
+    }
+
+    .admin-links {
+        flex-direction: column;
+        align-items: center;
     }
   }

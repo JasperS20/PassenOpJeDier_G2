@@ -12,14 +12,14 @@
         <img src="img/logo.png" alt="">
         <form class="auth-form" action="{{ route('login') }}" method="POST">
             @csrf
-            <div style="margin-right:20px;" class="input-field">
+            <div style="margin-right:20px;" class="input-field auth-input">
                 <label style="margin-right:160px;" for="email">e-mailadres</label><br>
                 <input type="text" name="email" id="email" value="{{ old('email') }}">
                 @error('email')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div style="margin-right:20px;" class="input-field">
+            <div style="margin-right:20px;" class="input-field auth-input">
                 <label style="margin-right:160px;" for="password">Wachtwoord</label><br>
                 <input type="password" name="password" id="password">
                 @error('password')

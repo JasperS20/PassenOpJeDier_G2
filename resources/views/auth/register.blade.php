@@ -71,10 +71,10 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="action-buttons">
-                    <a id="gobackto1" class="login-btn" href="">Vorige</a>
-                    <a id="gototab3" class="login-btn" href="" value="Next">Volgende</a>
-                </div>
+                
+                <a id="gobackto1" class="login-btn" href="">Vorige</a>
+                <a id="gototab3" class="login-btn" href="" value="Next">Volgende</a>
+                
             </section>
             <section id="tab3">
                 <div style="margin-right:20px;" class="input-field">

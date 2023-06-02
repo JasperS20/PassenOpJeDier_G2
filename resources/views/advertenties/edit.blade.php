@@ -66,7 +66,7 @@
             </div>
             <div class="input-field adv-input-field">
                     <label for="description">Beschrijving</label><br>
-                    <textarea class="adv-textarea" name="description" cols="60" rows="7" value="{{$advertisements->description}}"></textarea>
+                    <textarea class="adv-textarea" name="description" cols="60" rows="7">{{$advertisements->description}}</textarea>
                     @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

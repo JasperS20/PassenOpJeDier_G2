@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advertisements;
+use App\Models\CareRequests;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -28,6 +29,20 @@ class AdminUserController extends Controller
     public function deleteAdvertisements($advertisementsId) {
         $advertisements = Advertisements::where('id', '=', e($advertisementsId));
         $advertisements->delete();
+
+        return redirect()->back();
+    }
+
+    public function careRequestsTable() {
+        $careRequests = CareRequests::all();
+        return view("admin.requests", ["careRequests" => $careRequests]);
+    }
+
+    public function deleteRequests($careRequestsId) {
+        $careRequests = CareRequests::find($careRequestsId);
+        if ($careRequests) {
+            $careRequests->delete();
+        }
 
         return redirect()->back();
     }

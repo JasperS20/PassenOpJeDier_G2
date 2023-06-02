@@ -5,6 +5,7 @@
     <ul style="margin: 50px">
         <a href="{{ route('admin.users') }}" class="admin-tabel-btn">Gebruikers tabel</a>
         <a href="{{ route('admin.advertisements') }}" class="admin-tabel-btn">Advertenties tabel</a>
+        <a href="{{ route('admin.requests') }}" class="admin-tabel-btn">Aanvragen tabel</a>
     </ul>
 
     @yield('admin-table');

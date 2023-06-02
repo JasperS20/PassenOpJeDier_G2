@@ -31,10 +31,13 @@ Route::middleware('admin')->group(function() {
     Route::put('/users/{id}/verwijderen', [AdminUserController::class, 'deleteUsers'])->name('users.delete');
     //verwijderen advertentie
     Route::put('advertenties/{id}/verwijderen', [AdminUserController::class, 'deleteAdvertisements'])->name('advertisements.delete');
+    //verwijderen request
+    Route::put('requests/{id}/verwijderen', [AdminUserController::class, 'deleteRequests'])->name('requests.delete');
 
-    //bekijken tabellen users en advertenties
+    //bekijken tabellen users, advertenties en requests
     Route::get('users/bekijken', [AdminUserController::class, 'usersTable'])->name('admin.users');
     Route::get('advertisements/bekijken', [AdminUserController::class, 'advertisementsTable'])->name('admin.advertisements');
+    Route::get('careRequests/bekijken', [AdminUserController::class, 'careRequestsTable'])->name('admin.requests');
 });
 
 Route::middleware('auth')->group(function() {

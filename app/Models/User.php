@@ -56,8 +56,4 @@ class User extends Authenticatable
     public function advertisements() {
         return $this->hasMany(Advertisements::class, 'user_id');
     }
-
-    public function hasRole() {
-        
-    }
 }

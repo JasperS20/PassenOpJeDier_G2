@@ -86,6 +86,19 @@ textarea {
     font-size: 16px;
 }
 
+.profile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.profile-form {
+    width: 100%;
+    margin-left: 10px;
+}
+
 .two-inputs {
     display: flex;
     width: 49%;
@@ -514,5 +527,28 @@ nav a {
   
     .filterForm .form-group {
       width: 100%;
+    }
+
+    .profile-form {
+        justify-content: center;
+    }
+    
+    .profile-form > div {
+        width: 100%;
+    }
+
+    .two-inputs {
+        display: block;
+    }
+
+    .profile-button {
+        display: block;
+        margin: auto;
+        width: 100%;
+    }
+
+    .adv-textarea {
+        width: 80%;
+        box-sizing: border-box;
     }
   }
